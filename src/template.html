@@ -6,5 +6,42 @@
   <title>ToDo</title>
 </head>
 <body>
+  <main>
+    <h2 class="current-project"></h2>
+    <div class="wrapper">
+      <section class="projects">
+      </section>
+      <section class="tasks-section">
+        <button command="show-modal" commandfor="task-modal" id="new-task">New task</button>
+        <dialog id="task-modal">
+          <form action="#" id="task-form">
+            <div class="field">
+              <label for="title">Title:</label>
+              <input type="text" placeholder="title" name="title" id="title" minlength="1" required>
+            </div>
+            <div class="field">
+              <label for="description">Description:</label>
+              <input type="options" placeholder="description" name="description" id="description" minlength="1" required>
+            </div>
+            <div class="field">
+              <label for="priority">Choose a priority:</label>
+              <select name="priority" id="priority" required>
+                <option value="low">Low priority</option>
+                <option value="medium">Medium priority</option>
+                <option value="high">High priority</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="date">Choose task date:</label>
+              <input type="date" id="date" name="date" value="2026-10-22" min="2026-10-22" max="2070-10-22" required>
+            </div>
+            <button id="create-task">Create task</button>
+          </form>
+          <button commandfor="task-modal" command="close">Cancel</button>
+        </dialog>
+        <div class="tasks"></div>
+      </section>
+    </div>
+  </main>
 </body>
 </html>
