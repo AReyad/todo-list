@@ -9,6 +9,17 @@
   <main>
     <h2 class="current-project"></h2>
     <div class="wrapper">
+      <button command="show-modal" commandfor="project-modal">New project</button>
+      <dialog id="project-modal">
+        <form action="#" id="project-form">
+          <div class="field">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" minlength="1">
+          </div>
+          <button>Create project</button>
+        </form>
+        <button command="close-modal">Cancel</button>
+      </dialog>
       <section class="projects">
       </section>
       <section class="tasks-section">

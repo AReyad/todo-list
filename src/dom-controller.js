@@ -98,6 +98,13 @@ export default (() => {
     Storage.storeData("projects", projects)
   }
 
+  const createProjectFromForm = (form) => {
+    const data = Object.fromEntries(new FormData(form));
+    const project = createTodoProject(data["title"]);
+    createProjectElement(project);
+    Storage.storeData("projects", projects)
+  }
+
   // Immediately create and focus default project
   (() => {
     if(Storage.retrieveProjects("projects")) return loadProjects();
@@ -111,6 +118,14 @@ export default (() => {
     e.preventDefault();
     createTaskFromForm(taskForm);
     document.querySelector("#task-modal").close();
+    e.target.reset();
+  })
+
+  const projectForm = document.querySelector("#project-form");
+  projectForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    createProjectFromForm(projectForm);
+    document.querySelector("#project-modal").close();
     e.target.reset();
   })
 
